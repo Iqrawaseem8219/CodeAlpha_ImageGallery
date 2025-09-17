@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Unique Gallery with Auto Next & Edit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>My Unique Gallery</h1>
+
+  <!-- Category Buttons -->
+  <div class="categories">
+    <button onclick="filterImages('all')">All</button>
+    <button onclick="filterImages('nature')">Nature</button>
+    <button onclick="filterImages('Art')">Art</button>
+    <button onclick="filterImages('food')">Food</button>
+  </div>
+
+  <!-- Gallery -->
+  <div class="gallery-wrap">
+    <div class="gallery">
+      <img src="https://picsum.photos/id/1015/400" data-category="nature" alt="Nature 1">
+      <img src="https://i.pinimg.com/originals/8c/e1/d3/8ce1d32f5eafeea811922e6f088e887b.jpg" data-category="nature" alt="Nature 2">
+      <img src="https://i.pinimg.com/736x/58/47/7f/58477fbdd29d8b0e50bc11545d6e057f.jpg" data-category="nature" alt="Nature 3">
+      <img src="https://i.pinimg.com/originals/50/45/f0/5045f0a589f2adadac2ce8267a013c9e.jpg" data-category="nature" alt="Nature 4">
+      <img src="https://tse2.mm.bing.net/th/id/OIP.Qu8GN-_ohG1HJ0wjA-NxJQHaEo?pid=Api&P=0&h=220" data-category="nature" alt="Nature 5">
+      <img src="https://i.pinimg.com/originals/76/e4/cd/76e4cd4d3b44dc51ac775a664f55c8cf.jpg" data-category="nature" alt="Nature 6">
+      
+      <img src="https://static.vecteezy.com/system/resources/previews/017/769/788/original/minimalist-wall-art-abstract-geometric-prints-for-boho-aesthetic-interior-home-decor-wall-prints-burnt-orange-terracotta-colors-sun-rainbow-and-clay-pots-contemporary-artistic-printable-free-vector.jpg" data-category="Art" alt="Art 1">
+      <img src="https://wallpapers.com/images/hd/art-pictures-u0npilbqbutqh52b.jpg" data-category="Art" alt="Art 2">
+      <img src="https://nypost.com/wp-content/uploads/sites/2/2022/12/hunter-biden-art-221210-97.jpg?quality=75&strip=all" data-category="Art" alt="Art 3">
+      <img src="https://s.yimg.com/fz/api/res/1.2/mLw5iAU0uRjQdMByWLO3Gw--~C/YXBwaWQ9c3JjaGRkO2ZpPWZpbGw7aD00MTI7cHhvZmY9NTA7cHlvZmY9MTAwO3E9ODA7c3M9MTt3PTM4OA--/https://i.pinimg.com/736x/0d/05/2f/0d052f62e6c50b0bed2905b411a5deb2.jpg" data-category="Art" alt="Art 4">
+      <img src="https://s.yimg.com/fz/api/res/1.2/7ceUaiqU9jZNs4pBLrAV2g--~C/YXBwaWQ9c3JjaGRkO2ZpPWZpbGw7aD00MTI7cHhvZmY9NTA7cHlvZmY9MTAwO3E9ODA7c3M9MTt3PTM4OA--/https://i.pinimg.com/736x/32/c7/17/32c717f60e51c3267652c835a2e01584.jpg" data-category="Art" alt="Art 5">
+      <img src="https://s.yimg.com/fz/api/res/1.2/vZjeoglks.FzKj17ERDP6A--~C/YXBwaWQ9c3JjaGRkO2ZpPWZpbGw7aD00MTI7cHhvZmY9NTA7cHlvZmY9MTAwO3E9ODA7c3M9MTt3PTM4OA--/https://i.pinimg.com/736x/e7/46/b5/e746b5eaf856791c176b4063fab0e609.jpg" data-category="Art" alt="Art 6">
+
+      <img src="https://i.pinimg.com/originals/e9/fb/0d/e9fb0d0fb6271cd2465fc1dcdc27465a.jpg" data-category="food" alt="Food 1">
+      <img src="https://static.vecteezy.com/system/resources/previews/023/029/286/large_2x/set-of-american-breakfast-food-with-aesthetic-arrangement-top-view-photo.jpg" data-category="food" alt="Food 2">
+      <img src="https://i.pinimg.com/originals/ef/3f/3f/ef3f3fe30f5b76f20268b433b4f3a524.jpg" data-category="food" alt="Food 3">
+      <img src="https://i.pinimg.com/originals/2c/33/34/2c3334c6582e327684cdd4362331fc5d.jpg" data-category="food" alt="Food 4">
+      <img src="https://i.pinimg.com/originals/a4/42/3f/a4423fc7a1ebb93ab8f0dd845ae2129c.jpg" data-category="food" alt="Food 5">
+      <img src="https://i.pinimg.com/originals/09/80/74/09807473665c5c722f0f02310dc7527d.jpg" data-category="food" alt="Food 6">
+        
+
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="myModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <span class="save" onclick="saveCurrent()">Save</span>
+    <span class="prev" onclick="changeImage(-1)">&#10094;</span>
+    <img class="modal-content" id="modalImage">
+    <span class="next" onclick="changeImage(1)">&#10095;</span>
+    
+    <!-- Controls Section -->
+
+      <div id="controls">
+  <button id="editBtn" onclick="toggleEditOptions()">Edit</button>
+  <button id="autoBtn" onclick="toggleAutoNext()">Start Auto Next</button>
+  <!-- Edit options (hidden by default) -->
+  <div id="editOptions" style="display:none;">
+    <span class="circle black" onclick="applyBW('bw')"></span>
+    <span class="circle normal" onclick="applyBW('normal')"></span>
+  </div>
+</div>
+     
+  <script src="script.js"></script>
+</body>
+</html>
