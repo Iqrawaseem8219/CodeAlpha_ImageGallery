@@ -10,7 +10,39 @@ body {
   justify-content: center;
   width: 100%;
 }
+.save-options {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
+}.save-options {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 2000;
+}
 
+.save-options button {
+  padding: 10px 15px;
+  border: none;
+  background: #007bff;
+  color: white;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.save-options button:hover {
+  background: #0056b3;
+}
 .categories {
   margin: 20px;
 }
@@ -219,6 +251,29 @@ body {
   }
   .categories button {
     font-size: 15px;
+  }
+}
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Responsive buttons */
+@media (max-width: 768px) {
+  button {
+    width: 90%;       /* screen ke hisaab se chora ho jayega */
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  button {
+    width: 100%;
+    font-size: 13px;
+    padding: 10px;
   }
 }
 
