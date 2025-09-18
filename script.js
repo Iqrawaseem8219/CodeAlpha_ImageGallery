@@ -97,11 +97,54 @@ function syncEditToThumbnail() {
   }
 }
 
-// Save current modal image (keeps BW state on thumbnail)
+// Save buttons banane ka function
+function showSaveOptions(editedImg) {
+  const oldOpts = document.querySelector(".save-options");
+  if (oldOpts) oldOpts.remove();
+
+  const saveOptions = document.createElement("div");
+  saveOptions.classList.add("save-options");
+
+  // Save to Gallery Button
+  const saveToGalleryBtn = document.createElement("button");
+  saveToGalleryBtn.innerText = "Save to Gallery";
+  saveToGalleryBtn.onclick = function () {
+    const visible = getVisibleImages();
+    const thumb = visible[currentIndex];
+    if (thumb) {
+      thumb.src = editedImg.src;
+      if (editedImg.classList.contains("bw")) {
+        thumb.classList.add("bw");
+      } else {
+        thumb.classList.remove("bw");
+      }
+    }
+    alert("Image saved to gallery!");
+    saveOptions.remove();
+    closeModal();
+  };
+
+  // Save to System Button
+  const saveToSystemBtn = document.createElement("button");
+  saveToSystemBtn.innerText = "Save to System";
+  saveToSystemBtn.onclick = function () {
+    const link = document.createElement("a");
+    link.href = editedImg.src;
+    link.download = "edited-image.png"; 
+    link.click();
+    saveOptions.remove();
+  };
+
+  saveOptions.appendChild(saveToGalleryBtn);
+  saveOptions.appendChild(saveToSystemBtn);
+
+  document.body.appendChild(saveOptions);
+}
+
+// Save current modal image
 async function saveCurrent() {
-  syncEditToThumbnail(); // Thumbnail updated immediately
-  closeModal(); // Close modal after save
-  alert("Image saved inside gallery!");
+  syncEditToThumbnail(); 
+  showSaveOptions(modalImg); 
 }
 
 // Helper: get currently visible images
